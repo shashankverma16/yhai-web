@@ -1,0 +1,97 @@
+.join-page-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 80%;
+}
+
+.card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.apply-btn {
+    background-color: #3ea860;
+    font-family: "Roboto Condensed", sans-serif;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.apply-btn:hover {
+    background-color: #016120;
+}
+
+.eligibility-list {
+    text-align: left;
+    padding-left: 20px;
+    list-style-type: disc;
+    margin-top: 10px;
+}
+
+.eligibility-list li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Responsive design for tablets and smaller devices */
+@media (max-width: 1024px) {
+    .join-page-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        gap: 20px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Additional mobile responsiveness */
+@media (max-width: 768px) {
+    .join-page-container {
+        padding: 15px;
+        margin-top: 60px; /* Adjust margin for smaller devices */
+    }
+
+    .card {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .join-page-container {
+        padding: 10px;
+        margin-top: 50px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 18px; /* Adjust heading size for smaller screens */
+    }
+
+    .steps-list {
+        font-size: 14px; /* Adjust list text size for readability on small screens */
+    }
+}

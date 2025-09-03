@@ -1,0 +1,131 @@
+.program-section {
+    width: 100%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.program-container {
+    display: flex;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  
+  .program-card {
+    flex: 1 0 calc(100% / 4);
+    margin: 0 10px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: transparent; /* Remove background color */
+  }
+  
+  .program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .program-image {
+    position: relative;
+    overflow: hidden;
+   }
+
+ 
+.program-image img {
+    width: 100%;
+    height: 250px; /* Make the image bigger */
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+  
+  .program-unit {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+.pr_title{
+  font-size: 23px;
+  font-weight: bold;
+}
+
+  .pr_cost{
+    font-size: 22px;
+    color: #da4207;
+    font-weight: bold;
+  }
+  
+  /* Adjust program info */
+  .program-info {
+    /* padding-top: 10px; */
+    font-size: 14px; /* Make content smaller */
+    color: #333; /* Ensure text color is visible */
+    text-align: center; /* Center the content */
+}
+  /* Explore button styles remain the same */
+  .explore-btn {
+    background-color: #50C878;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .explore-btn:hover {
+    background-color: #fff;
+    border: 3px solid #45b569;
+    color: #45b569;
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+  
+  .explore-btn:active {
+    background-color: #3ea860;
+  }
+  
+  .explore-btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(80, 200, 120, 0.5);
+  }
+  
+
+.arrow {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    padding: 10px;
+    border-radius: 20%;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}

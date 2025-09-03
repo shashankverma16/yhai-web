@@ -1,0 +1,137 @@
+/* Adjust navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ECFFDC;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 98%;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+body {
+  padding-top: 60px;
+}
+
+.logo {
+  height: 60px; /* Ensure consistent navbar height */
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+}
+
+/* Navigation links container */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  margin-right: 30px;
+  flex-wrap: wrap;
+}
+
+/* Nav item hover effect */
+.nav-links li {
+  position: relative;
+}
+
+.nav-links li:hover {
+  background-color: #dcf1cb; /* Set background to white on hover */
+
+}
+
+.nav-links li a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  font-size: 17px;
+  height: 60px; /* Match the height of the navbar */
+  display: flex;
+  align-items: center; /* Vertically center text within the nav item */
+  padding: 0 15px; /* Horizontal padding */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for the text color */
+.nav-links li:hover a {
+  color: #000; /* Change the text color on hover */
+}
+
+/* Menu icon for mobile */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 20px;
+  height: 3px;
+  background-color: #000;
+  margin: 4px 0;
+  margin-right: 20px;
+  transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    height: 100vh;
+    width: 100%; /* Take the full width */
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+    padding-top: 20px; /* Add space at the top */
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    text-align: center;
+    color: #FFF;
+    width: 100%; /* Make sure the list items take the full width */
+  }
+
+  .nav-links li a {
+    display: block;
+    width: 100%; /* Ensure the links take up full width */
+    /* padding: 20px 0; Vertically space out the links */
+    text-align: center; /* Center the text */
+    font-size: 18px; /* Adjust the font size for better readability */
+    color: #FFF; /* White color for links */
+  }
+
+  .nav-links li a:hover {
+    background-color: #50C878; /* Change background on hover */
+    color: #FFF; /* Keep the text color white */
+ 
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .menu-icon.open .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .menu-icon.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-icon.open .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}

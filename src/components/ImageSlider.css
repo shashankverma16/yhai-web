@@ -1,0 +1,83 @@
+/* Slider Container */
+.slider-container {
+    position: relative;
+    width: 100%;
+    /* max-width: 800px; */
+    height: 500px;
+    margin: auto;
+    overflow: hidden;
+    /* border-radius: 10px; */
+  }
+  
+  /* Slide */
+  .slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  /* Description */
+.description {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Previous & Next Arrows */
+  .prev-arrow, .next-arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    color: white;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    /* border-radius: 50%; */
+    opacity: 0.2;
+    padding: 5px;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+  
+  .prev-arrow {
+    left: 20px;
+  }
+  
+  .next-arrow {
+    right: 20px;
+  }
+  
+  /* Navigation Dots */
+  .dots-container {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+  }
+  
+  .dot {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dot.active {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Image Styles */
+  .slide img {
+    width: 100%;
+    height: 100%;
+    /* border-radius: 10px; */
+    object-fit: cover;
+  }
+  

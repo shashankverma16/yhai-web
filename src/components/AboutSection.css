@@ -1,0 +1,98 @@
+/* Container for the entire About section */
+.about-container {
+    width: 100%;
+    margin: 50px 0;
+}
+
+/* Flex container for the About section */
+.about {
+    display: flex;
+    align-items: flex-start; /* Aligns content to the top */
+    justify-content: flex-start; /* Ensures items are aligned to the left */
+    margin-bottom: 50px;
+    padding: 20px;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+/* Styling the image on the left */
+.about-image img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the details on the right */
+.about-details {
+    flex: 1;
+    margin-left: 40px;
+    text-align: left;
+}
+
+/* Mobile responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column; /* Stack the image and text vertically */
+        align-items: center; /* Center align for a better mobile look */
+        text-align: center;
+    }
+
+    .about-image {
+        margin-bottom: 20px; /* Adds space between image and text */
+    }
+
+    .about-details {
+        margin-left: 0; /* Remove the margin on mobile */
+    }
+
+    .about-details h2 {
+        font-size: 24px; /* Reduce font size for mobile */
+    }
+
+    .about-details p {
+        font-size: 14px; /* Reduce font size for better readability */
+    }
+}
+
+/* Historical Figures Section */
+.historical-figures {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Each figure */
+.figure {
+    text-align: center;
+    width: 25%;
+}
+
+/* Responsive design for historical figures */
+@media (max-width: 768px) {
+    .historical-figures {
+        flex-direction: column; /* Stack figures vertically */
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .figure {
+        width: 100%; /* Make each figure take full width */
+        margin-bottom: 20px; /* Add space between the figures */
+    }
+}
+
+.figure h3 {
+    font-size: 36px;
+    margin-bottom: 5px;
+    color: #1a73e8;
+}
+
+.figure p {
+    font-size: 16px;
+    color: #555;
+}

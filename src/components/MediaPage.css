@@ -1,0 +1,115 @@
+/* Container for the media page */
+.media-page {
+  width: 90%; /* Reduce the width for more space on the sides */
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* News list container */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Individual news item */
+.news-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* News image styling */
+.news-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* Expanded image styling */
+.news-image.expanded {
+  width: 600px;
+  height: 600px;
+}
+
+/* News details container */
+.news-details {
+  margin-left: 20px;
+  text-align: left;
+  flex: 1;
+}
+
+/* News title styling */
+.news-details h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* News content/summary styling */
+.news-details p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Read more button styling */
+.read-more-btn, .collapse-btn {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.read-more-btn:hover, .collapse-btn:hover {
+  background-color: #155ab2;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .media-page {
+    width: 95%; /* Make it more contained on mobile */
+  }
+
+  .news-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .news-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .news-image.expanded {
+    width: 100%;
+    height: auto;
+  }
+
+  .news-details {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .news-details h3 {
+    font-size: 18px;
+  }
+
+  .news-details p {
+    font-size: 14px;
+  }
+}

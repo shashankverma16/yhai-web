@@ -1,0 +1,145 @@
+/* Ensure the content starts below the navbar */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.program-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 100px auto 50px auto; /* Adds top space and margin at the bottom before the footer */
+  padding: 0 20px; /* Padding to ensure content stays within the container */
+  max-width: 1200px; /* Optional max-width to center the grid and prevent too wide display */
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+/* Program Card Styles */
+.program-card {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for program cards */
+.program-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Program Image Styles */
+.program-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.program-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.program-unit {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Program Info Styles */
+.pr_title {
+  font-size: 23px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.pr_cost {
+  font-size: 22px;
+  color: #da4207;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.program-info {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+
+/* Explore Button Styles */
+.explore-btn {
+  background-color: #50C878;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Karla', sans-serif;
+  font-size: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.explore-btn:hover {
+  background-color: #fff;
+  border: 3px solid #45b569;
+  color: #45b569;
+}
+
+.explore-btn:active {
+  background-color: #3ea860;
+}
+
+.explore-btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(80, 200, 120, 0.5);
+}
+
+/* Responsive Styles for Program Container */
+@media (max-width: 1024px) {
+  .program-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .program-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .program-container {
+    grid-template-columns: 1fr; /* 1 column for extra small screens */
+  }
+}
+
+/* Footer bottom spacing */
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #222;
+  color: white;
+  text-align: center;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+}
