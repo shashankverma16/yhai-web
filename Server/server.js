@@ -1,33 +1,32 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config(); // Load .env variables
+
 const app = express();
 const PORT = process.env.PORT || 5000;
-const mediaRoutes = require('../src/routes/mediaRoutes'); // Ensure path is correct
+const mediaRoutes = require('./src/routes/mediaRoutes'); // Ensure path is correct
 
 // Middleware
-// Use media routes
-
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
+
+// Routes
 app.use('/api/media', mediaRoutes);
-// Connect to MongoDB
-// mongoose.connect('mongodb://localhost:27017/yhai-db', {
-mongoose.connect(
-  'mongodb+srv://codeovercoffee25:dBc23FQaMEX4gCS1@cluster0.jqkytab.mongodb.net/yhai-db?retryWrites=true&w=majority',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-)
-  .then(() => console.log('MongoDB connected successfully'))
-  .catch(err => console.error('Failed to connect to MongoDB:', err));
 
+// ✅ MongoDB Connection
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log('✅ MongoDB connected successfully'))
+  .catch(err => {
+    console.error('❌ Failed to connect to MongoDB');
+    console.error('Error:', err.message);
+  });
 
-
-
-// Define Program Schema & Model
+// ✅ Program Schema & Model
 const programSchema = new mongoose.Schema({
   title: String,
   unit: String,
@@ -37,7 +36,9 @@ const programSchema = new mongoose.Schema({
 
 const Program = mongoose.model('Program', programSchema);
 
-// API to get all programs
+// ✅ API Endpoints
+
+// Get all programs
 app.get('/api/programs', async (req, res) => {
   try {
     const programs = await Program.find();
@@ -47,7 +48,7 @@ app.get('/api/programs', async (req, res) => {
   }
 });
 
-// API to create a new program
+// Create new program
 app.post('/api/programs', async (req, res) => {
   try {
     const { title, unit, cost, image } = req.body;
@@ -59,7 +60,7 @@ app.post('/api/programs', async (req, res) => {
   }
 });
 
-// API to update a program
+// Update program
 app.put('/api/programs/:id', async (req, res) => {
   try {
     const { title, unit, cost, image } = req.body;
@@ -74,7 +75,7 @@ app.put('/api/programs/:id', async (req, res) => {
   }
 });
 
-// API to delete a program
+// Delete program
 app.delete('/api/programs/:id', async (req, res) => {
   try {
     await Program.findByIdAndDelete(req.params.id);
@@ -84,7 +85,7 @@ app.delete('/api/programs/:id', async (req, res) => {
   }
 });
 
-// Start server
+// ✅ Start Server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
