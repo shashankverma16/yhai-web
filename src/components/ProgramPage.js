@@ -24,10 +24,14 @@ function ProgramPage() {
     useEffect(() => {
     const fetchPrograms = async () => {
         try {
-            const response = await axios.get('https://your-vercel-deployment-url.vercel.app/api/programs');
-            console.log('Fetched data:', response.data); // <-- Add this
-            const sortedPrograms = response.data.sort((a, b) => new Date(b._id) - new Date(a._id));
-            setPrograms(sortedPrograms);
+            const response = await axios.get('https://your-vercel-url.vercel.app/api/programs');
+            console.log('Fetched data:', response.data); // Add this line to inspect the response
+            if (Array.isArray(response.data)) {
+                const sortedPrograms = response.data.sort((a, b) => new Date(b._id) - new Date(a._id));
+                setPrograms(sortedPrograms);
+            } else {
+                console.error('Data is not an array:', response.data);
+            }
         } catch (error) {
             console.error('Error fetching the programs:', error);
         }
@@ -35,6 +39,7 @@ function ProgramPage() {
 
     fetchPrograms();
 }, []);
+
 
     // Function to handle "View Details" button click
     const handleViewDetails = (program) => {
