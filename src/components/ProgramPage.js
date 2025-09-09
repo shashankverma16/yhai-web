@@ -24,24 +24,26 @@ function ProgramPage() {
     //     fetchPrograms();
     // }, []);
 
-    useEffect(() => {
-    const fetchPrograms = async () => {
-        try {
-            // const response = await axios.get('https://yhai-web.vercel.app//api/programs');
-            const response = await axios.get(`${API_URL}/api/programs`);
-            console.log('Fetched data:', response.data); // Add this line to inspect the response
-            if (Array.isArray(response.data)) {
-                const sortedPrograms = response.data.sort((a, b) => new Date(b._id) - new Date(a._id));
-                setPrograms(sortedPrograms);
-            } else {
-                console.error('Data is not an array:', response.data);
-            }
-        } catch (error) {
-            console.error('Error fetching the programs:', error);
-        }
-    };
+   useEffect(() => {
+  const fetchPrograms = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/api/programs`);
+      
+      // Ensure response.data is an array before sorting
+      if (Array.isArray(response.data)) {
+        const sortedPrograms = response.data.sort(
+          (a, b) => new Date(b._id) - new Date(a._id)
+        );
+        setPrograms(sortedPrograms);
+      } else {
+        console.error('Data is not an array:', response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching the programs:', error);
+    }
+  };
 
-    fetchPrograms();
+  fetchPrograms();
 }, []);
 
 
