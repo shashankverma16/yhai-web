@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ProgramPage.css';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from './config';
+
+
 
 function ProgramPage() {
     const [programs, setPrograms] = useState([]);
@@ -24,7 +27,8 @@ function ProgramPage() {
     useEffect(() => {
     const fetchPrograms = async () => {
         try {
-            const response = await axios.get('https://yhai-web.vercel.app//api/programs');
+            // const response = await axios.get('https://yhai-web.vercel.app//api/programs');
+            const response = await axios.get(`${API_URL}/api/programs`);
             console.log('Fetched data:', response.data); // Add this line to inspect the response
             if (Array.isArray(response.data)) {
                 const sortedPrograms = response.data.sort((a, b) => new Date(b._id) - new Date(a._id));
