@@ -10,7 +10,7 @@ function ProgramPage() {
     useEffect(() => {
         const fetchPrograms = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/programs');
+                const response = await axios.get('https://yhai-web.vercel.app/api/programs');
                 const sortedPrograms = response.data.sort((a, b) => new Date(b._id) - new Date(a._id));
                 setPrograms(sortedPrograms);
             } catch (error) {
