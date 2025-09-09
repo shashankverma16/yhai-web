@@ -7,19 +7,34 @@ function ProgramPage() {
     const [programs, setPrograms] = useState([]);
     const navigate = useNavigate(); // Initialize navigate hook
 
-    useEffect(() => {
-        const fetchPrograms = async () => {
-            try {
-                const response = await axios.get('https://localhost:5000/api/programs');
-                const sortedPrograms = response.data.sort((a, b) => new Date(b._id) - new Date(a._id));
-                setPrograms(sortedPrograms);
-            } catch (error) {
-                console.error('Error fetching programs', error);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchPrograms = async () => {
+    //         try {
+    //             const response = await axios.get('https://localhost:5000/api/programs');
+    //             const sortedPrograms = response.data.sort((a, b) => new Date(b._id) - new Date(a._id));
+    //             setPrograms(sortedPrograms);
+    //         } catch (error) {
+    //             console.error('Error fetching programs', error);
+    //         }
+    //     };
     
-        fetchPrograms();
-    }, []);
+    //     fetchPrograms();
+    // }, []);
+
+    useEffect(() => {
+    const fetchPrograms = async () => {
+        try {
+            const response = await axios.get('https://your-vercel-deployment-url.vercel.app/api/programs');
+            console.log('Fetched data:', response.data); // <-- Add this
+            const sortedPrograms = response.data.sort((a, b) => new Date(b._id) - new Date(a._id));
+            setPrograms(sortedPrograms);
+        } catch (error) {
+            console.error('Error fetching the programs:', error);
+        }
+    };
+
+    fetchPrograms();
+}, []);
 
     // Function to handle "View Details" button click
     const handleViewDetails = (program) => {
